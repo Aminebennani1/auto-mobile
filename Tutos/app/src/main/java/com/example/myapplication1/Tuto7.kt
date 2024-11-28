@@ -72,6 +72,65 @@ fun main(){
 
 }
 
+// Exercices pratiques :
+// 1 / Manipulation des collections :
+
+fun main() {
+    // Créer une liste de nombres
+    val numbers = listOf(5, 12, 8, 21, 3, 18, 7)
+
+    // Filtrer les nombres supérieurs à 10
+    val filteredNumbers = numbers.filter { it > 10 }
+
+    // Afficher les résultats
+    println("Nombres supérieurs à 10 : $filteredNumbers")
+}
+//Transformez une liste de chaînes en majuscules.
+
+fun main() {
+    // Créer une liste de chaînes
+    val strings = ("bonjour")
+
+    // Transformer les chaînes en majuscules
+    val uppercasedStrings = strings.map { it.uppercase() }
+
+    // Afficher les résultats
+    println("Chaînes en majuscules : $uppercasedStrings")
+}
+
+// 2 :Fonctions génériques :
+
+fun <T> getLastElement(list: List<T>): T? = list.lastOrNull()
+
+fun main() {
+    val numbers = listOf(1, 2, 3)
+    println(getLastElement(numbers)) // Affiche : 3
+
+    val strings = listOf("Kotlin", "Java", "Python")
+    println(getLastElement(strings)) // Affiche : Python
+
+    val emptyList = listOf<Int>()
+    println(getLastElement(emptyList)) // Affiche : null
+}
+//Extension :
+
+fun <T> List<T>.secondOrNull(): T? {
+    return if (this.size > 1) this[1] else null
+}
+
+// Exemple d'utilisation
+fun main() {
+    val liste = listOf(10, 20, 30)
+    println(liste.secondOrNull()) // Renvoie 20
+
+    val listeVide = listOf<Int>()
+    println(listeVide.secondOrNull()) // Renvoie null
+
+    val listeUneValeur = listOf(10)
+    println(listeUneValeur.secondOrNull()) // Renvoie null
+}
+
+
 
 
 
